@@ -1,3 +1,4 @@
+import 'package:breathe/breathe/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,7 +10,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     _lockScreenOrientation();
-    _setStatusBarIconsColorToDark();
+    _setStatusBarIconsColorToWhite();
     return const _AppView();
   }
 
@@ -19,9 +20,9 @@ class App extends StatelessWidget {
     ]);
   }
 
-  void _setStatusBarIconsColorToDark() {
+  void _setStatusBarIconsColorToWhite() {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.light,
+      statusBarBrightness: Brightness.dark,
     ));
   }
 }
@@ -35,13 +36,9 @@ class _AppView extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Breathe',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
-        appBarTheme: const AppBarTheme(
-          color: Colors.transparent,
-          elevation: 0,
-        ),
+        scaffoldBackgroundColor: const Color(0xFF2E3440),
       ),
-      home: null,
+      home: const BreathePage(),
     );
   }
 }
