@@ -52,15 +52,15 @@ class _Painter extends CustomPainter {
   final Animation<double> _animation;
   final int _leaves = 10;
   late final Color _color;
-  late final Paint _circlePaint;
+  late final Paint _paint;
 
   _Painter(
     this._animation,
   ) : super(repaint: _animation) {
     _color = const Color(0xFF8FBCBB);
-    _circlePaint = Paint();
-    _circlePaint.color = _color;
-    _circlePaint.blendMode = BlendMode.softLight;
+    _paint = Paint();
+    _paint.color = _color;
+    _paint.blendMode = BlendMode.softLight;
   }
 
   @override
@@ -71,7 +71,7 @@ class _Painter extends CustomPainter {
       final indexAngle = (i * pi / _leaves * 2);
       final angle = indexAngle + (pi * 1.5 * _animation.value);
       final offset = Offset(sin(angle), cos(angle)) * radius * 0.985;
-      canvas.drawCircle(center + (offset * _animation.value), radius, _circlePaint);
+      canvas.drawCircle(center + (offset * _animation.value), radius, _paint);
     }
   }
 
